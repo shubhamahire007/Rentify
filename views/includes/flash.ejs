@@ -1,0 +1,167 @@
+<!-- <% if(success && success.length) { %>
+    <div class="alert alert-success alert-dismissible fade show col-6 offset-3" role="alert">
+        <%= success %>
+        <button type="submit" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+<% } %> -->
+
+
+
+<% if(success && success.length) { %>
+    <div id="successAlert" class="custom-alert col-6 offset-3">
+        <%= success %>
+        <button type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+    <style>
+        /* Custom Alert Styles */
+        .custom-alert {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #28a745, #80c2af);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            font-weight: 500;
+            z-index: 1050;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            opacity: 0;
+            transform: translateY(-20px);
+            animation: fadeIn 0.5s ease forwards;
+        }
+        .custom-alert .btn-close {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .custom-alert .btn-close:hover {
+            color: #f8d7da;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+    <script>
+        // Auto-close alert after 3 seconds with fade-out effect
+        setTimeout(() => {
+            const alertElement = document.getElementById('successAlert');
+            if (alertElement) {
+                alertElement.style.animation = 'fadeOut 0.5s ease forwards';
+                setTimeout(() => alertElement.remove(), 500); // Remove after fade-out
+            }
+        }, 3000);
+
+        // Close button functionality
+        document.querySelector('#successAlert .btn-close').addEventListener('click', () => {
+            const alertElement = document.getElementById('successAlert');
+            if (alertElement) {
+                alertElement.style.animation = 'fadeOut 0.5s ease forwards';
+                setTimeout(() => alertElement.remove(), 500);
+            }
+        });
+    </script>
+<% } %>
+
+
+<% if(error && error.length) { %>
+    <div id="errorAlert" class="custom-alert col-6 offset-3">
+        <%= error %>
+        <button type="button" class="btn-close" aria-label="Close"></button>
+    </div>
+    <style>
+        /* Custom Alert Styles */
+        .custom-alert {
+            position: fixed;
+            top: 5%; /* Top of the center */
+            left: 20%; /* Center horizontally */
+            background: linear-gradient(45deg, #28a745, #80c2af); /* For success */
+            color: white;
+            padding: 15px 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            font-size: 1rem;
+            font-weight: 500;
+            z-index: 1050;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 400px;
+            opacity: 0;
+            transform: translateX(-50%); /* Center horizontally */
+            animation: fadeIn 0.5s ease forwards;
+        }
+    
+        .custom-alert .btn-close {
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+        .custom-alert .btn-close:hover {
+            color: #f8d7da;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            to {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+        }
+    </style>
+    <script>
+        // Auto-close alert after 3 seconds with fade-out effect
+        setTimeout(() => {
+            const alertElement = document.getElementById('errorAlert');
+            if (alertElement) {
+                alertElement.style.animation = 'fadeOut 0.5s ease forwards';
+                setTimeout(() => alertElement.remove(), 300); // Remove after fade-out
+            }
+        }, 3000);
+
+        // Close button functionality
+        document.querySelector('#errorAlert .btn-close').addEventListener('click', () => {
+            const alertElement = document.getElementById('errorAlert');
+            if (alertElement) {
+                alertElement.style.animation = 'fadeOut 0.5s ease forwards';
+                setTimeout(() => alertElement.remove(), 500);
+            }
+        });
+    </script>
+<% } %>

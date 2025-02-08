@@ -1,0 +1,19 @@
+npm init -y
+npm i express
+npm i ejs
+npm i mongoose
+
+for delete and update request , i download method-override package . bcoz form oonly supports get & post
+npm i method-override
+
+npm i ejs-mate.   use for layouts.reduces repetative code (e.g Navbar which use in every page, so we dont have to write code many times)
+
+npm i express-session
+
+npm i connect-flash   -> to display one time message
+
+npm i passport   -> authentication middleware for nodjs
+npm i passport-local
+npm i passport-local-mongoose
+
+npm i multer -> to get file data from form and send to third party

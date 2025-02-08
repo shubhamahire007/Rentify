@@ -1,0 +1,93 @@
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+  rel="stylesheet"
+/>
+
+<% layout ('/layouts/boilerplate') %>
+<body>
+  <div class="new row">
+    <div class="col-md-6">
+      <h2>Edit Listing</h2>
+      <form action="/listings/<%= data._id %>?_method=PUT" method="post" enctype="multipart/form-data">
+        <div class="mb-3">
+          <label for="title" class="form-label">Title</label>
+          <input
+            type="text"
+            name="title"
+            class="form-control"
+            value="<%= data.title %>"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+          <textarea name="description" class="form-control">
+<%= data.description %></textarea
+          >
+        </div>
+
+        <div class="mb-3">
+            Original Listing image <br>
+            <img src="<%= data.image.url %>" height="184px" width="194px">
+        </div>
+
+        <div class="mb-3">
+          <label for="image" class="form-label">Upload new Image</label>
+          <input
+            type="file"
+            name="image"
+            class="form-control"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="location" class="form-label">Location</label>
+          <input
+            type="text"
+            name="location"
+            class="form-control"
+            value="<%= data.location %>"
+          />
+        </div>
+
+        <div class="mb-3">
+          <label for="propertyType" class="form-label">Property Type</label>
+          <div class="input-group">
+            <select name="propertyType" id="propertyType" class="form-control">
+              <option value=""><%= data.propertyType %></option>
+              <option value="Flat">Flat</option>
+              <option value="Villa">Villa</option>
+              <option value="Room">Room</option>
+              <option value="PG">PG</option>
+            </select>
+            <span class="input-group-text">
+              <i class="bi bi-chevron-down"></i>
+            </span>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="mb-2 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input
+              type="number"
+              name="price"
+              class="form-control"
+              value="<%= data.price %>"
+            />
+          </div>
+          <div class="mb-2 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input
+              name="country"
+              class="form-control"
+              value="<%= data.country %>"
+            />
+          </div>
+        </div>
+        <br />
+        <button class="btn my_btn">Edit</button>
+      </form>
+    </div>
+  </div>
+</body>
