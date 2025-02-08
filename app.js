@@ -40,7 +40,8 @@ main()
   });
 
 app.get("/", (req, res) => {
-  res.send("Hii, i am a root");
+  // res.send("Hii, i am a root");
+  res.redirect("/listings");
 });
 
 const secret = process.env.SECRET;
