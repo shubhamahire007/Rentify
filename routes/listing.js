@@ -27,6 +27,7 @@ router.get("/new", isLoggedIn, (req, res) => {
   res.render("listings/new.ejs");
 });
 
+const MAP_KEY= process.env.MAP_KEY;
 //show route
 router.get(
   "/:id",
@@ -40,7 +41,8 @@ router.get(
         },
       })
       .populate("owner");
-    res.render("listings/show.ejs", { data });
+    console.log("key in js:"+MAP_KEY);
+    res.render("listings/show.ejs", { data,MAP_KEY });
   })
 );
 

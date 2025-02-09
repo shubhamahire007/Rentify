@@ -114,6 +114,10 @@ body{
 .offset-3 {
     margin-left: 27% !important;
 }
+.veryImp{
+    margin-left: 0px !important;
+    border: none !important;
+}
 .btns{
     display: flex;
     margin-top: 29px !important;
@@ -181,8 +185,14 @@ body{
   
 .my-nav{
     display: flex !important;
-    gap: 15px !important;
+    /* gap: 15px !important; */
 }
-.my-bar{
-    
+@media (max-width: 767px) { /* Adjust for smaller screens */
+    .navbar-nav .nav-link {
+        display: flex; /* Ensures the button doesn't take full width */
+        width: max-content; /* Keeps width based on content */
+        text-align: center; /* Centers the text */
+        padding: 8px 16px; 
+        margin: 5px auto; /* Adds space around buttons */
+    }
 }
